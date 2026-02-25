@@ -2,19 +2,26 @@
 --main-color--: white;
 --secondary-color--: rgb(248, 248, 248);
 --icon-color--: rgb(102, 102, 102);
+--card-border-color--: rgb(219, 219, 219);
 
---header-height--: 75px;
+--header-height--: 60px;
 --sidebar-width--: 300px;
 
 --left-right-margin--: 3rem;
 
---main-font--: 'Courier New', Courier, monospace;
+/*--main-font--: 'Courier New', Courier, monospace;*/
+--primary-font--: 'RawlineRegular', 'Courier New', Courier, monospace;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+    margin: 0;
 }
 
 body {
     display: flex;
     flex-direction: column;
     background-color: var(--secondary-color--);
+    font-family: var(--primary-font--);
 }
 
 .icon {
@@ -33,7 +40,7 @@ header {
     width: 100vw;;
     height: var(--header-height--);
     z-index: 1000;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: var(--main-font--);
     font-size: 1.5rem;
     font-weight: 700;
     color: var(--icon-color--);
@@ -55,6 +62,8 @@ header nav {
 aside {
     position: fixed;
     top: /*calc(var(--header-height--) + 50px)*/ var(--header-height--);
+    display: flex;
+    justify-content: center;
     height: 100vh;
     width: var(--sidebar-width--);
     background-color: var(--secondary-color--);
@@ -63,6 +72,9 @@ aside {
 
 /*======MAIN======*/
 main {
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
     margin-top: var(--header-height--);
     margin-left: var(--sidebar-width--);
     z-index: 500;
@@ -75,5 +87,111 @@ main {
     border-top-left-radius: 50px;
     height: 80%;
     width: 100%;
-    background-color: white;
+    /*background-color: var(--main-color--);*/
+    background-color: var(--main-color--);
+    background-image: repeating-linear-gradient(
+    to bottom,
+    #eee 0,
+    #eee 1px,
+    transparent 1px,
+    transparent 20px
+    );
+}
+
+main > section {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: 3rem;
+    margin-right: 3rem;
+    scroll-margin-top: 60px;
+}
+
+section h2 {
+    font-size: 2.5rem;
+}
+
+section h4 {
+    font-size: 2rem;
+}
+
+section p {
+    font-size: 1.5rem;
+}
+
+#intro {
+    display: flex;
+    align-items: center;
+    margin-top: 5rem;
+    margin-left: 12rem;
+    margin-right: 12rem;
+    text-align: center;
+    gap: 2rem;
+}
+
+#intro > img {
+    width: 300px;
+    border-radius: 30%;
+    border: 2px solid var(--icon-color--);
+}
+
+#must-haves {
+    text-align: justify;
+    gap: 3rem;
+}
+
+#must-haves h4 {
+    text-align: center;
+}
+
+.flex-container-row {
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--secondary-color--);
+    padding: 1.5rem;
+    border-radius: 15px;
+    border: 1px solid var(--card-border-color--);
+    gap: 1rem;
+}
+
+#must-haves .card > .icon {
+    height: 100px;
+}
+
+#routine {
+    gap: 2rem;
+}
+
+#routine .card{
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+}
+
+#routine .card > .icon {
+    height: 75px;
+}
+
+#routine h4 {
+    font-size: 1.7rem;
+}
+
+.flex-container-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60vw;
+    gap: 1rem;
+}
+
+.flex-container-col .card {
+    gap: 0.5rem;
+    min-width: 60vw;
+    
 }
