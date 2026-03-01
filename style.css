@@ -3,17 +3,40 @@
 --secondary-color--: rgb(248, 248, 248);
 --icon-color--: rgb(102, 102, 102);
 --card-border-color--: rgb(219, 219, 219);
+--curved-main-bg-color--: #eee;
 
---header-height--: 60px;
+--header-height--: 70px;
 --sidebar-width--: 300px;
 
 --left-right-margin--: 3rem;
 
-/*--main-font--: 'Courier New', Courier, monospace;*/
 --primary-font--: 'RawlineRegular', 'Courier New', Courier, monospace;
+--primary-font-color--: black;
 --link-font-color--: rgb(102, 102, 102);
 --link-visited-color--: white;
+--button-hover-color--: rgb(226, 226, 226);
 }
+/*--main-font--: 'Courier New', Courier, monospace;*/
+
+body.dark{
+--main-color--: rgb(61, 61, 61);
+--secondary-color--: rgb(49, 49, 49);
+--icon-color--: rgb(148, 148, 148);
+--card-border-color--: rgb(0, 0, 0);
+--curved-main-bg-color--: #585858;
+
+--header-height--: 70px;
+--sidebar-width--: 300px;
+
+--left-right-margin--: 3rem;
+
+--primary-font--: 'RawlineRegular', 'Courier New', Courier, monospace;
+--primary-font-color--: rgb(255, 255, 255);
+--link-font-color--: white;
+--link-visited-color--: white;
+--button-hover-color--: rgb(65, 65, 65);
+}
+
 
 p, h1, h2, h3, h4, h5, h6 {
     margin: 0;
@@ -24,6 +47,7 @@ body {
     flex-direction: column;
     background-color: var(--secondary-color--);
     font-family: var(--primary-font--);
+    color: var(--primary-font-color--);
 }
 
 .icon {
@@ -56,9 +80,28 @@ header {
 }
 
 header nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
     margin-right: var(--left-right-margin--);
 }
 
+header button {
+    border: none;
+    background: none;
+    padding: 1px 3px 1px 3px;
+    margin: 0;
+    border-radius: 40%;
+}
+
+header button:hover {
+    background-color: var(--button-hover-color--);
+}
+
+header svg, header span {
+    cursor: pointer;
+}
 
 /*======ASIDE======*/
 aside {
@@ -129,14 +172,14 @@ main {
     top: var(--header-height--);
     left: var(--sidebar-width--);
     border-top-left-radius: 50px;
-    height: 80%;
+    height: 100%;
     width: 100%;
     /*background-color: var(--main-color--);*/
     background-color: var(--main-color--);
     background-image: repeating-linear-gradient(
     to bottom,
-    #eee 0,
-    #eee 1px,
+    var(--curved-main-bg-color--) 0,
+    var(--curved-main-bg-color--) 1px,
     transparent 1px,
     transparent 20px
     );
@@ -229,6 +272,7 @@ section p {
 
 .flex-container-col {
     display: flex;
+    flex: 1;
     flex-direction: column;
     gap: 1rem;
 }
@@ -249,4 +293,12 @@ section p {
     padding: 10px;
     background-color: rgb(226, 226, 226);
     border-radius: 40%;
+}
+
+#additional-info {
+    gap: 2rem;
+}
+
+#additional-info li{
+    font-size: 1.4rem;
 }
